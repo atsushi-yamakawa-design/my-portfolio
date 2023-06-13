@@ -1,14 +1,19 @@
 import Image from 'next/image';
-import styles from '@styles/page.module.css';
+import Link from 'next/link';
+import styles from './page.module.css';
+import api from '@api/$api';
+import aspida from '@aspida/fetch';
 
-export default function Home() {
+export default function Home({ works }) {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
+      山川敦史
+      <ul>
+        {works.map((work) => (
+          <li key={work.id}>{work.title}</li>
+        ))}
+      </ul>
+      {/* <div className={styles.description}>
         <div>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -26,9 +31,8 @@ export default function Home() {
             />
           </a>
         </div>
-      </div>
-
-      <div className={styles.center}>
+      </div> */}
+      {/* <div className={styles.center}>
         <Image
           className={styles.logo}
           src="/next.svg"
@@ -37,9 +41,8 @@ export default function Home() {
           height={37}
           priority
         />
-      </div>
-
-      <div className={styles.grid}>
+      </div> */}
+      {/* <div className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
@@ -89,7 +92,24 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-      </div>
+      </div> */}
     </main>
   );
 }
+
+export const getStaticProps = async () => {
+  const fetchConfig = {
+    headers: {
+      'X-MICROCMS-API-KEY': 'Bu8sYqDQGDAORoCm2Fz9NWEqYg4neZJX4R5L',
+    },
+    baseURL: 'https://atsushi-yamakawa.microcms.io/api/v1',
+  };
+  const client = api(aspida(fetch, fetchConfig));
+  const works = await client.works.$get({ query: { limit: 10 } });
+
+  return {
+    props: {
+      works: works.contents,
+    },
+  };
+};
