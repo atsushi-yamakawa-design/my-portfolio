@@ -1,115 +1,47 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './page.module.css';
-import api from '@api/$api';
-import aspida from '@aspida/fetch';
+import WorkList from '@components/WorkList';
+import styles from './page.module.scss';
+import { client } from '@libs/client';
+import type { Works, Settings } from '../types';
 
-export default function Home({ works }) {
+export default function Home({
+  works,
+  settings,
+}: {
+  works: Works[];
+  settings: Settings;
+}) {
   return (
-    <main className={styles.main}>
-      山川敦史
-      <ul>
-        {works.map((work) => (
-          <li key={work.id}>{work.title}</li>
-        ))}
-      </ul>
-      {/* <div className={styles.description}>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div> */}
-      {/* <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div> */}
-      {/* <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div> */}
-    </main>
+    <>
+      <main className={styles.main}>
+        <ul>
+          {settings.topSlider.map((slide) => (
+            <li key={slide.fieldId} className={styles.slideImg}>
+              <Link href={slide.slideLink} rel="">
+                <Image
+                  src={slide.slideImg.url + '?w=1000'}
+                  alt={slide.title}
+                  width={1000}
+                  height={700}
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <WorkList list={works}></WorkList>
+      </main>
+    </>
   );
 }
 
 export const getStaticProps = async () => {
-  const fetchConfig = {
-    headers: {
-      'X-MICROCMS-API-KEY': 'Bu8sYqDQGDAORoCm2Fz9NWEqYg4neZJX4R5L',
-    },
-    baseURL: 'https://atsushi-yamakawa.microcms.io/api/v1',
-  };
-  const client = api(aspida(fetch, fetchConfig));
-  const works = await client.works.$get({ query: { limit: 10 } });
-
+  const works = await client.get({ endpoint: 'works' });
+  const settings = await client.get({ endpoint: 'settings' });
   return {
     props: {
       works: works.contents,
+      settings: settings,
     },
   };
 };
