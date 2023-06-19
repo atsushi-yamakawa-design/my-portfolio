@@ -4,6 +4,13 @@ import WorkList from '@components/WorkList';
 import styles from './page.module.scss';
 import { client } from '@libs/client';
 import type { Works, Settings } from '../types';
+import Slider from '../components/Slider';
+
+const items = [
+  { id: 1, content: 'Slide 1' },
+  { id: 2, content: 'Slide 2' },
+  { id: 3, content: 'Slide 3' },
+];
 
 export default function Home({
   works,
@@ -29,6 +36,8 @@ export default function Home({
             </li>
           ))}
         </ul>
+        <Slider items={items} />
+        <p className="text-pale">薄いテキスト</p>
         <WorkList list={works}></WorkList>
       </main>
     </>
