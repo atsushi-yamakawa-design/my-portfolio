@@ -1,8 +1,8 @@
 export type Works = {
   id: string;
   title: string;
-  thumb?: {
-    url?: string;
+  thumb: {
+    url: string;
   };
   header?: {
     url: string;

@@ -139,12 +139,14 @@ $light-theme: (
   'text-color': black,
   'text-pale': #9a98a0,
   'bg-color': white,
+  'caption': #b8b6c3,
 );
 
 $dark-theme: (
   'text-color': white,
   'text-pale': #5e5d63,
   'bg-color': black,
+  'caption': #6e6d75,
 );
 
 @mixin theme($theme) {
@@ -156,9 +158,19 @@ $dark-theme: (
   .text-pale {
     color: map-get($theme, 'text-pale');
   }
+  .caption {
+    color: map-get($theme, 'caption');
+  }
 }
 
 @include theme($light-theme);
 @media (prefers-color-scheme: dark) {
   @include theme($dark-theme);
 }
+
+// .swiper {
+
+// }
+// .swiper-wrapper {
+//   width: 80vw !important;
+// }

@@ -1,0 +1,16 @@
+@import '@styles/variables.scss';
+
+.slider {
+  width: $vw-golden !important;
+  height: 100vh !important;
+  margin-left: 0 !important;
+  .slide {
+    height: $vh-golden !important;
+    width: 100% !important;
+    .slideImg {
+      height: 100% !important;
+      width: 100% !important;
+      object-fit: cover;
+    }
+  }
+}

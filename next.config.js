@@ -18,6 +18,6 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ['images.microcms-assets.io'],
+    domains: ['images.microcms-assets.io', 'placehold.jp'],
   },
 };
