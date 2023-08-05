@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import useYouTubeAPI from './useYouTubeAPI';
-import style from './YoutubePlayer.module.scss';
+import style from './YouTubePlayer.module.scss';
 import Image from 'next/image';
 import { ReactSVG } from 'react-svg';
 
