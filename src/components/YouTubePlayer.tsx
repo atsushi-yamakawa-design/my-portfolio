@@ -66,7 +66,11 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId, thumb }) => {
             className={style.screenBg}
           />
           <button className={style.playButton}>
-            <ReactSVG src="/images/assets/play-button.svg" />
+            <ReactSVG
+              src="/images/assets/play-button.svg"
+              className={style.triangle}
+              // style={{ width: '100%', height: 'auto' }}
+            />
           </button>
         </div>
       )}

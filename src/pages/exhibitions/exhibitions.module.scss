@@ -23,6 +23,11 @@
       display: flex;
       align-items: flex-end;
       gap: 20px;
+      &:hover {
+        .exThumb {
+          opacity: 0.9;
+        }
+      }
       @include for-sp {
         width: 100%;
         flex-direction: column;
@@ -31,6 +36,8 @@
       .exThumb {
         width: 40% !important;
         border-radius: 5px;
+        transition: all 0.1s ease-in-out;
+        opacity: 0.7;
         @include for-sp {
           width: 100% !important;
         }
