@@ -5,6 +5,7 @@ import type { Works } from '../../types';
 import { GetStaticPropsContext } from 'next';
 import style from './workpage.module.scss';
 import BottomMenu from '@components/BottomMenu';
+import YouTubePlayer from '@components/YouTubePlayer';
 
 export default function WorkPage({ work }: { work: Works }) {
   return (
@@ -46,6 +47,9 @@ export default function WorkPage({ work }: { work: Works }) {
           </div>
           <div className={style.workImgs}>
             <ul className={style.workImgsList}>
+              <li>
+                <YouTubePlayer videoId="WDGPssxsbNY" />
+              </li>
               {work.workImgs.map((img) => (
                 <li
                   key={img.fieldId}

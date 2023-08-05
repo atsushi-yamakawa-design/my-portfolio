@@ -16,7 +16,7 @@ export default function Home({ exhibitions }: { exhibitions: Exhibitions[] }) {
             <li key={exhibition.id}>
               <Link
                 href={`/exhibitions/${exhibition.id}`}
-                className={style.exItem}
+                className={`${style.exItem} hover-change`}
               >
                 <Image
                   src={exhibition.thumb.url}

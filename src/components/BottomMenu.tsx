@@ -12,13 +12,19 @@ export default function BottomMenu({
       <div className={style.wrapper}>
         <ul className={style.menuList}>
           <li className={showTop ? '' : 'hide'}>
-            <Link href={`/`}>works</Link>
+            <Link href={`/`} className={`hover-change`}>
+              works
+            </Link>
           </li>
           <li className={showAbout ? '' : 'hide'}>
-            <Link href={`/about`}>about</Link>
+            <Link href={`/about`} className={`hover-change`}>
+              about
+            </Link>
           </li>
           <li className={showEx ? '' : 'hide'}>
-            <Link href={`/exhibitions`}>exhibitions</Link>
+            <Link href={`/exhibitions`} className={`hover-change`}>
+              exhibitions
+            </Link>
           </li>
         </ul>
         <ul className={`${style.snsList} ${showSNS ? '' : 'hide'}`}>

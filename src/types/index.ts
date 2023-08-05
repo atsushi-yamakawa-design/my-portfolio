@@ -1,3 +1,4 @@
+// 作品
 export type Works = {
   id: string;
   title: string;
@@ -24,6 +25,7 @@ export type Works = {
   ];
 };
 
+// 設定
 export type Settings = {
   topSlider: [
     {
@@ -58,6 +60,7 @@ export type Settings = {
   ];
 };
 
+// 展示
 export type Exhibitions = {
   id: string;
   title: string;
@@ -84,3 +87,34 @@ export type Exhibitions = {
     }
   ];
 };
+
+// youtube
+declare global {
+  interface Window {
+    onYouTubeIframeAPIReady?: () => void;
+    YTConfig: {
+      host: string;
+    };
+    YT: {
+      Player: {
+        new (elementId: string, options: YTPlayerOptions): YTPlayerInstance;
+      };
+    };
+  }
+}
+
+export interface YTPlayerOptions {
+  height: string;
+  width: string;
+  videoId: string;
+  events: {
+    onReady: (event: any) => void;
+    onStateChange: (event: any) => void;
+  };
+}
+
+export interface YTPlayerInstance {
+  playVideo: () => void;
+  stopVideo: () => void;
+  destroy: () => void;
+}

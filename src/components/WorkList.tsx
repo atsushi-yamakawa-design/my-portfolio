@@ -7,7 +7,7 @@ export default function WorkList({ list }: { list: Works[] }) {
     <>
       <ul className={style.wrapper}>
         {list.map((work) => (
-          <li key={work.id} className={style.name}>
+          <li key={work.id} className={` hover-change ${style.name}`}>
             <Link href={`/works/${work.id}`}>{work.title}</Link>
           </li>
         ))}
