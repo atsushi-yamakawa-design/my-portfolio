@@ -9,7 +9,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
   const [isClientSide, setClientSide] = useState(false);
 
   useEffect(() => {
-    setClientSide(true); // クライアントサイドであることを設定
+    setClientSide(true);
 
     window.YTConfig = {
       host: 'https://www.youtube.com',
@@ -20,9 +20,9 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
       tag.src = 'https://www.youtube.com/iframe_api';
       const firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-    } else {
-      createPlayer();
     }
+
+    window.onYouTubeIframeAPIReady = createPlayer;
 
     function onPlayerReady(event: YT.PlayerEvent): void {
       playerRef.current?.playVideo();
@@ -33,14 +33,20 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
     }
 
     function createPlayer(): void {
-      playerRef.current = new window.YT.Player('player', {
-        videoId: videoId,
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange,
-        },
-      });
+      if (typeof window.YT !== 'undefined') {
+        playerRef.current = new window.YT.Player('player', {
+          videoId: videoId,
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      }
     }
+
+    return () => {
+      window.onYouTubeIframeAPIReady = undefined;
+    };
   }, [videoId]);
 
   const handlePlay = (): void => {
@@ -52,7 +58,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
   };
 
   if (!isClientSide) {
-    return null; // サーバーサイドでは何もレンダリングしない
+    return null;
   }
 
   return (
