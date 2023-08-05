@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import useYouTubeAPI from './useYouTubeAPI';
 
 interface YouTubePlayerProps {
   videoId: string;
@@ -6,26 +7,15 @@ interface YouTubePlayerProps {
 
 const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
   const playerRef = useRef<YT.Player | null>(null);
-  const [isClientSide, setClientSide] = useState(false);
+  const apiLoaded = useYouTubeAPI();
 
   useEffect(() => {
-    setClientSide(true);
-
-    window.YTConfig = {
-      host: 'https://www.youtube.com',
-    };
-
-    if (typeof window.YT === 'undefined') {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+    if (apiLoaded) {
+      createPlayer();
     }
 
-    window.onYouTubeIframeAPIReady = createPlayer;
-
     function onPlayerReady(event: YT.PlayerEvent): void {
-      playerRef.current?.playVideo();
+      // playerRef.current?.playVideo();
     }
 
     function onPlayerStateChange(event: YT.OnStateChangeEvent): void {
@@ -33,21 +23,15 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
     }
 
     function createPlayer(): void {
-      if (typeof window.YT !== 'undefined') {
-        playerRef.current = new window.YT.Player('player', {
-          videoId: videoId,
-          events: {
-            onReady: onPlayerReady,
-            onStateChange: onPlayerStateChange,
-          },
-        });
-      }
+      playerRef.current = new window.YT.Player('player', {
+        videoId: videoId,
+        events: {
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange,
+        },
+      });
     }
-
-    return () => {
-      window.onYouTubeIframeAPIReady = undefined;
-    };
-  }, [videoId]);
+  }, [apiLoaded, videoId]);
 
   const handlePlay = (): void => {
     playerRef.current?.playVideo();
@@ -56,10 +40,6 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
   const handlePause = (): void => {
     playerRef.current?.pauseVideo();
   };
-
-  if (!isClientSide) {
-    return null;
-  }
 
   return (
     <div>
