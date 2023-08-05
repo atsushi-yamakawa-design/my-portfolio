@@ -6,6 +6,9 @@ $vw-golden: 61.8vw;
 $vh-golden: 61.8vh;
 
 // font--------------------------------------------------
-$font-roman: 'Garamond 3 LT Std', 'Hiragino Mincho ProN';
+$font-roman: 'Garamond 3 LT Std', 'Hiragino Mincho ProN', serif;
+$font-sans-serif: 'Koburina Gothic Std', sans-serif;
 
-// --------------------------------------------------
+// var--------------------------------------------------
+$pc-side-width: 14px;
+$sp-side-width: 14px;

@@ -1,0 +1,49 @@
+@import '@styles/variables.scss';
+@import '@styles/mixins';
+
+.wrapper {
+  position: fixed;
+  z-index: 2;
+  right: $pc-side-width;
+  bottom: 38px;
+  @include for-sp {
+    right: $sp-side-width;
+    bottom: 10px;
+  }
+  .menuList {
+    @include menu-texts;
+    li {
+      padding: 4px 0;
+    }
+  }
+  .snsList {
+    display: flex;
+    justify-content: right;
+    margin-top: 30px;
+    @include for-sp {
+      margin-top: 15px;
+    }
+    li {
+      margin-left: 15px;
+      @include for-sp {
+        margin-left: 5px;
+      }
+      a {
+        display: block;
+        padding: 5px;
+
+        div {
+          width: 22px;
+          height: 22px;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          @include for-sp {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+}

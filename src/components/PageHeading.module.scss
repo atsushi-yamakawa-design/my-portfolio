@@ -1,0 +1,10 @@
+@import '@styles/variables.scss';
+@import '@styles/mixins';
+
+.headingWrapper {
+  h1 {
+    text-align: center;
+    @include name-text;
+    margin: 50px 0;
+  }
+}

@@ -1,0 +1,116 @@
+// メディアクエリ-----------------------------
+
+@mixin for-sp {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin for-small-pc {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+// フォント-----------------------------
+
+@mixin menu-texts {
+  font-family: $font-roman;
+  letter-spacing: 0.025em;
+  font-size: 20px;
+  text-align: right;
+  @include for-sp {
+    font-size: 16px;
+  }
+}
+
+@mixin title-text {
+  font-family: $font-roman;
+  font-size: 24px;
+  letter-spacing: 0.6px;
+  @include for-sp {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+}
+
+@mixin year-text {
+  font-family: $font-roman;
+  font-size: 16px;
+  letter-spacing: 0.35px;
+  @include for-sp {
+    font-size: 14px;
+  }
+}
+
+@mixin dscr-text {
+  font-family: $font-roman;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 199%;
+  letter-spacing: 0.375px;
+  @include for-sp {
+    font-size: 13px;
+    letter-spacing: 0.325px;
+  }
+}
+
+@mixin credit-text {
+  font-family: $font-roman;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@mixin caption-text {
+  font-family: $font-sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  @include for-sp {
+    font-size: 10px;
+  }
+}
+
+@mixin name-text {
+  font-family: $font-roman;
+  font-size: 20px;
+  letter-spacing: 0.4px;
+  line-height: 1.4;
+  @include for-sp {
+    font-size: 16px;
+  }
+}
+
+@mixin career-text {
+  font-family: $font-roman;
+  font-size: 14px;
+  letter-spacing: 0.35px;
+  @include for-sp {
+    font-size: 13px;
+  }
+}
+
+@mixin ex-title-text {
+  font-family: $font-roman;
+  font-size: 18px;
+  letter-spacing: 0.4px;
+  line-height: 1.4;
+  @include for-tablet {
+    font-size: 16px;
+  }
+}
+
+@mixin ex-venue-text {
+  font-family: $font-roman;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  line-height: 1.4;
+  @include for-sp {
+    font-size: 11px;
+  }
+}

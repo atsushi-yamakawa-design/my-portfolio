@@ -1,13 +1,69 @@
 @import '@styles/variables.scss';
+@import '@styles/mixins.scss';
 
-.slideImg {
-  display: block;
-  width: $vw-golden;
-  height: $vh-golden;
-  background-color: aqua;
-  img {
+.contentsWrapper {
+  margin-left: 100px;
+  padding: 40px 0 200px;
+  width: 551px;
+  @include for-tablet {
+    margin-left: 0;
+    padding: 0 24px 200px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+  }
+}
+
+.aboutText {
+  @include dscr-text;
+}
+.aboutTextEn {
+  margin-top: 30px;
+}
+
+.profilePhoto {
+  width: 300px;
+  @include for-tablet {
+    width: calc(100% + 24px);
+    margin-left: -24px;
+  }
+  img {
+    display: block;
+    width: 100%;
+  }
+  .imgCaption {
+    @include caption-text;
+    text-align: end;
+    margin-top: 5px;
+  }
+}
+
+.nameWrapper {
+  margin: 100px 0 30px;
+  @include name-text;
+}
+
+.careerSection {
+  margin: 100px 0;
+  @include for-tablet {
+    margin: 80px 0 40px;
+  }
+  h3 {
+    margin: 60px 0 0;
+    @include for-tablet {
+    }
+  }
+  ul {
+    margin: 10px 0 30px;
+    li {
+      display: flex;
+      align-items: baseline;
+      margin: 12px 0;
+      @include for-tablet {
+        margin: 10px 0;
+      }
+      @include career-text;
+      .year {
+        margin-right: 14px;
+      }
+    }
   }
 }

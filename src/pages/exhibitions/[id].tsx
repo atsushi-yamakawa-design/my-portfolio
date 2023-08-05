@@ -1,52 +1,37 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { client } from '@libs/client';
-import type { Works } from '../../types';
+import type { Exhibitions } from '../../types';
 import { GetStaticPropsContext } from 'next';
-import style from './workpage.module.scss';
+import style from './exPage.module.scss';
 import BottomMenu from '@components/BottomMenu';
 
-export default function WorkPage({ work }: { work: Works }) {
+export default function ExPage({ ex }: { ex: Exhibitions }) {
   return (
     <>
       <main>
         <div className={style.wrapper}>
-          <div className={style.headerImg}>
-            <Image
-              src={work.header.url}
-              layout="responsive"
-              width={640}
-              height={400}
-              alt="test_image"
-            />
-          </div>
           <div className={style.textWrapper}>
-            <p className={style.workTitle}>{work.title}</p>
-            <p className={style.workYear}>{work.year}</p>
-            <div className={style.DscrBlock}>
+            <span className={style.exTitle}>{ex.title}</span>
+            <p className={style.exYear}>{ex.period}</p>
+            <div className={style.exDscrBlock}>
               <div
                 dangerouslySetInnerHTML={{
-                  __html: `${work.content}`,
+                  __html: `${ex.content}`,
                 }}
                 className={style.dscr}
               />
               <div
                 dangerouslySetInnerHTML={{
-                  __html: `${work.contentEn}`,
+                  __html: `${ex.contentEn}`,
                 }}
                 className={` ${style.dscr} ${style.dscrEn}`}
               />
             </div>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `${work.credit}`,
-              }}
-              className={`textPale ${style.credit}`}
-            />
           </div>
-          <div className={style.workImgs}>
-            <ul className={style.workImgsList}>
-              {work.workImgs.map((img) => (
+          <div className={style.exImgs}>
+            <ul className={style.exImgsList}>
+              {ex.exImgs.map((img) => (
                 <li
                   key={img.fieldId}
                   className={style[img.width == 'Full' ? 'fullImg' : 'halfImg']}
@@ -70,10 +55,10 @@ export default function WorkPage({ work }: { work: Works }) {
 }
 
 export const getStaticPaths = async () => {
-  const works = await client.get({ endpoint: 'works' });
+  const exhibitions = await client.get({ endpoint: 'exhibitions' });
 
-  const paths = works.contents.map((work: { id: string }) => ({
-    params: { id: work.id },
+  const paths = exhibitions.contents.map((ex: { id: string }) => ({
+    params: { id: ex.id },
   }));
 
   return { paths, fallback: false };
@@ -87,11 +72,11 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   }
 
   const id = context.params.id;
-  const data = await client.get({ endpoint: 'works', contentId: id });
+  const data = await client.get({ endpoint: 'exhibitions', contentId: id });
 
   return {
     props: {
-      work: data,
+      ex: data,
     },
   };
 };

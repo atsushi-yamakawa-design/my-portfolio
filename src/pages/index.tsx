@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import WorkList from '@components/WorkList';
-import styles from './page.module.scss';
+import style from './page.module.scss';
 import { client } from '@libs/client';
 import type { Works, Settings } from '../types';
-import TopSlider from '@/components/TopSlider';
+import TopSlider from '@components/TopSlider';
+import BottomMenu from '@components/BottomMenu';
 
 // const items = [
 //   { id: 1, content: 'Slide 1' },
@@ -21,10 +22,10 @@ export default function Home({
 }) {
   return (
     <>
-      <main className={styles.main}>
+      <main className={style.main}>
         {/* <ul>
           {settings.topSlider.map((slide) => (
-            <li key={slide.fieldId} className={styles.slideImg}>
+            <li key={slide.fieldId} className={style.slideImg}>
               <Link href={slide.slideLink} rel="">
                 <Image
                   src={slide.slideImg.url + '?w=1000'}
@@ -39,6 +40,7 @@ export default function Home({
         {/* <Slider items={items} /> */}
         {/* <p className="text-pale">薄いテキスト</p> */}
         <WorkList list={works}></WorkList>
+        <BottomMenu showTop={false} />
         <TopSlider />
       </main>
     </>

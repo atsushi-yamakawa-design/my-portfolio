@@ -1,0 +1,54 @@
+@import '@styles/variables.scss';
+@import '@styles/mixins.scss';
+
+.exList {
+  width: 70%;
+  margin: 0 0 100px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @include for-tablet {
+    margin: 0 0 100px $pc-side-width;
+    width: 90%;
+  }
+  @include for-sp {
+    width: 80%;
+    margin: 30px auto;
+    align-items: center;
+  }
+  li {
+    width: 100%;
+    .exItem {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      @include for-sp {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .exThumb {
+        width: 40% !important;
+        border-radius: 5px;
+        @include for-sp {
+          width: 100% !important;
+        }
+      }
+      .exTitle {
+        @include ex-title-text;
+      }
+      .exPreiod {
+        @include year-text;
+        margin-top: 4px;
+      }
+      .exVenue {
+        @include ex-venue-text;
+        margin-top: 16px;
+        @include for-sp {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}

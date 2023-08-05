@@ -31,11 +31,14 @@
       "@components/*": [
         "src/components/*"
       ],
-      "@types/*": [
-        "src/types/*"
+      "@styles/*": [
+        "src/styles/*"
       ],
       "@libs/*": [
         "src/libs/*"
+      ],
+      "@types/*": [
+        "src/types/*"
       ]
     }
   },
