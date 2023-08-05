@@ -46,10 +46,10 @@ export default function WorkPage({ work }: { work: Works }) {
             />
           </div>
           <div className={style.workImgs}>
+            {work.movie ? (
+              <YouTubePlayer videoId={work.movie} thumb={work.movieThumb.url} />
+            ) : null}
             <ul className={style.workImgsList}>
-              <li>
-                <YouTubePlayer videoId="WDGPssxsbNY" />
-              </li>
               {work.workImgs.map((img) => (
                 <li
                   key={img.fieldId}

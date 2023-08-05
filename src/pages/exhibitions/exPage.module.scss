@@ -23,7 +23,7 @@
 
 .textWrapper {
   position: absolute;
-  top: 30px;
+  top: 10vh;
   right: $pc-side-width;
   width: calc(100vw - $vw-golden) - 10vw;
   padding-bottom: 200px;
@@ -74,6 +74,7 @@
 .exImgs {
   width: $vw-golden;
   padding: 0 0 0 $pc-side-width;
+  margin-top: 20px;
   @include for-tablet {
     width: 100%;
     padding: 30px $sp-side-width 0;

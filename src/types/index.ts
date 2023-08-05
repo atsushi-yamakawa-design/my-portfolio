@@ -12,6 +12,10 @@ export type Works = {
   content: string;
   contentEn: string;
   credit: string;
+  movie?: string;
+  movieThumb: {
+    url: string;
+  };
   workImgs: [
     {
       fieldId: string;
