@@ -9,7 +9,7 @@
 
 .headerImg {
   width: $vw-golden;
-  height: 24vh;
+  height: 24dvh;
   @include for-tablet {
     width: 100% !important;
     height: $vh-golden !important;
@@ -23,7 +23,7 @@
 
 .textWrapper {
   position: absolute;
-  top: 10vh;
+  top: 10dvh;
   right: $pc-side-width;
   width: calc(100vw - $vw-golden) - 10vw;
   padding-bottom: 200px;
