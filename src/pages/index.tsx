@@ -5,6 +5,7 @@ import style from './page.module.scss';
 import { client } from '@libs/client';
 import type { Works, Settings } from '../types';
 import TopSlider from '@components/TopSlider';
+import TopScroll from '@components/TopScroll';
 import BottomMenu from '@components/BottomMenu';
 
 // const items = [
@@ -41,7 +42,8 @@ export default function Home({
         {/* <p className="text-pale">薄いテキスト</p> */}
         <WorkList list={works}></WorkList>
         <BottomMenu showTop={false} />
-        <TopSlider />
+        {/* <TopSlider /> */}
+        <TopScroll />
       </main>
     </>
   );

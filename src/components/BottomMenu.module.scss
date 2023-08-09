@@ -19,10 +19,7 @@
   .snsList {
     display: flex;
     justify-content: right;
-    margin-top: 30px;
-    @include for-sp {
-      margin-top: 15px;
-    }
+    margin-top: 1em;
     li {
       margin-left: 15px;
       @include for-sp {
