@@ -59,7 +59,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId, thumb }) => {
         <div className={style.playerScreen} onClick={handlePlay}>
           <Image
             src={thumb}
-            layout="responsive"
+            // layout="responsive"
             width={640}
             height={400}
             alt=""

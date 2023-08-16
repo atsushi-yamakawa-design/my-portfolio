@@ -38,12 +38,14 @@ export default function WorkPage({ work }: { work: Works }) {
                 className={` ${style.dscr} ${style.dscrEn}`}
               />
             </div>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `${work.credit}`,
-              }}
-              className={`textPale ${style.credit}`}
-            />
+            {work.credit ? (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: `${work.credit}`,
+                }}
+                className={`textPale ${style.credit}`}
+              />
+            ) : null}
           </div>
           <div className={style.workImgs}>
             {work.movie ? (
