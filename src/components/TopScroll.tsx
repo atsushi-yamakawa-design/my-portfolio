@@ -1,36 +1,52 @@
 import React from 'react';
 import Image from 'next/image';
-import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
+// import { client } from '@libs/client';
+import SwiperCore, { Autoplay, Mousewheel } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import type { Settings } from '../types';
 import styles from './TopScroll.module.scss';
 import 'swiper/swiper.min.css';
 import Link from 'next/link';
 
-SwiperCore.use([Autoplay]);
+SwiperCore.use([Autoplay, Mousewheel]);
 
-const images = [
-  'https://images.microcms-assets.io/assets/efdfa1b4e1d04c8eb6446e4cc08e316b/a9621f398c254d9da29c58274973b3ac/a-1-5.jpg',
-  'https://images.microcms-assets.io/assets/efdfa1b4e1d04c8eb6446e4cc08e316b/45d75195cc0b47029491492544fb6ede/a-1-h.jpg',
-  'https://images.microcms-assets.io/assets/efdfa1b4e1d04c8eb6446e4cc08e316b/a9621f398c254d9da29c58274973b3ac/a-1-5.jpg',
-];
-
-const TopScroll = () => {
+const TopScroll = ({ settings }: { settings: Settings }) => {
   return (
-    <ul className={styles.slider}>
-      {images.map((src: string, index: number) => {
+    <Swiper
+      className={styles.slider}
+      loop={true}
+      autoplay={{ delay: 4000, disableOnInteraction: false }}
+      speed={700}
+      spaceBetween={0}
+      slidesPerView={'auto'}
+      direction={'vertical'}
+      mousewheel={true}
+      modules={[Autoplay, Mousewheel]}
+    >
+      {settings.topSlider.map((item) => {
         return (
-          <li key={`${index}`} className={styles.slide}>
+          <SwiperSlide key={item.fieldId} className={styles.slide}>
             <Image
-              src={src}
+              src={item.slideImg.url}
               width={640}
               height={400}
-              alt="test_image"
+              alt={item.title}
               className={styles.slideImg}
             />
-          </li>
+          </SwiperSlide>
         );
       })}
-    </ul>
+    </Swiper>
   );
 };
 
 export default TopScroll;
+
+// export const getStaticProps = async () => {
+//   const settings = await client.get({ endpoint: 'settings' });
+//   return {
+//     props: {
+//       settings: settings,
+//     },
+//   };
+// };

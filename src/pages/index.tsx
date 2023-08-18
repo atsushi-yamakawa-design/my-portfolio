@@ -24,26 +24,9 @@ export default function Home({
   return (
     <>
       <main className={style.main}>
-        {/* <ul>
-          {settings.topSlider.map((slide) => (
-            <li key={slide.fieldId} className={style.slideImg}>
-              <Link href={slide.slideLink} rel="">
-                <Image
-                  src={slide.slideImg.url + '?w=1000'}
-                  alt={slide.title}
-                  width={1000}
-                  height={700}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul> */}
-        {/* <Slider items={items} /> */}
-        {/* <p className="text-pale">薄いテキスト</p> */}
         <WorkList list={works}></WorkList>
         <BottomMenu showTop={false} />
-        {/* <TopSlider /> */}
-        <TopScroll />
+        <TopScroll settings={settings} />
       </main>
     </>
   );
