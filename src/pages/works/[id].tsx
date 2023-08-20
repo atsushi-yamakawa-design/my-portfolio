@@ -52,9 +52,9 @@ export default function WorkPage({ work }: { work: Works }) {
               <YouTubePlayer videoId={work.movie} thumb={work.movieThumb.url} />
             ) : null}
             <ul className={style.workImgsList}>
-              {work.workImgs.map((img) => (
+              {work.workImgs.map((img, index) => (
                 <li
-                  key={img.fieldId}
+                  key={index}
                   className={style[img.width == 'Full' ? 'fullImg' : 'halfImg']}
                 >
                   <Image

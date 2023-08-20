@@ -7,11 +7,23 @@
   z-index: 1;
   .slide {
     height: 100dvh;
-    width: $vw-golden;
-    .slideImg {
+    width: 100%;
+    .slideLink {
+      display: block;
+      width: $vw-golden;
       height: 100%;
-      width: 100%;
-      object-fit: cover;
+      overflow: hidden;
+      &:hover {
+        .slideImg {
+          transform: scale(1.1);
+        }
+      }
+      .slideImg {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease-in-out;
+      }
     }
   }
 }
