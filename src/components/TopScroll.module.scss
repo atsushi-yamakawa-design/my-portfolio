@@ -1,10 +1,14 @@
 @import '@styles/variables.scss';
+@import '@styles/mixins.scss';
 
 .slider {
   width: 100vw;
   height: 100dvh;
   margin-left: 0 !important;
   z-index: 1;
+  @include for-sp {
+    width: $vw-golden;
+  }
   .slide {
     height: 100dvh;
     width: 100%;
@@ -13,6 +17,9 @@
       width: $vw-golden;
       height: 100%;
       overflow: hidden;
+      @include for-sp {
+        width: 100%;
+      }
       &:hover {
         .slideImg {
           transform: scale(1.1);
