@@ -67,25 +67,3 @@
     }
   }
 }
-
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.loadScreen {
-  position: fixed;
-  width: 100vw;
-  height: 100dvh;
-  background-color: #fff;
-  z-index: 999;
-  transform: translateX(100%);
-  animation: slideInFromLeft 0.25s ease-in-out;
-  @media (prefers-color-scheme: dark) {
-    background-color: #000;
-  }
-}

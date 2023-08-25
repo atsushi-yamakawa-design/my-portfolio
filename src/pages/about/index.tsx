@@ -16,7 +16,7 @@ export default function About({
   return (
     <>
       <main className={style.main}>
-        <div className={style.loadScreen}></div>
+        <div className={'loadScreen'}></div>
         <div className={style.contentsWrapper}>
           <div className={style.profilePhoto}>
             <Image

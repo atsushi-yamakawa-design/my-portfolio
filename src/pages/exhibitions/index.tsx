@@ -10,6 +10,7 @@ export default function Home({ exhibitions }: { exhibitions: Exhibitions[] }) {
   return (
     <>
       <main className={style.main}>
+        <div className={'loadScreen'}></div>
         <PageHeading heading="Exhibitions" />
         <ul className={style.exList}>
           {exhibitions.map((exhibition) => (
