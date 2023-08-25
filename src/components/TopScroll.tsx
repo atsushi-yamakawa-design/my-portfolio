@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import SwiperCore, { Autoplay, Mousewheel, Parallax } from 'swiper';
+import SwiperCore, { Autoplay, Mousewheel } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Settings } from '../types';
 import styles from './TopScroll.module.scss';
 import 'swiper/swiper.min.css';
 import Link from 'next/link';
 
-SwiperCore.use([Autoplay, Mousewheel, Parallax]);
+SwiperCore.use([Autoplay, Mousewheel]);
 
 const TopScroll = ({ settings }: { settings: Settings }) => {
   const [swiperDirection, setSwiperDirection] = useState<
@@ -36,23 +36,23 @@ const TopScroll = ({ settings }: { settings: Settings }) => {
 
   const sliderConfig = {
     loop: true,
-    autoplay: { delay: 3000, disableOnInteraction: false },
+    autoplay: { delay: 3000, disableOnInteraction: true },
     speed: 300,
     spaceBetween: 0,
-    parallax: true,
     direction: swiperDirection,
     mousewheel: true,
-    modules: [Autoplay, Mousewheel, Parallax],
+    modules: [Autoplay, Mousewheel],
   };
 
-  //次はパララックスから
-
   return (
-    <Swiper className={styles.slider} {...sliderConfig}>
+    <Swiper
+      className={`${styles.slider} ${styles.slideInFromLeft}`}
+      {...sliderConfig}
+    >
       {settings.topSlider.map((item, index) => {
         return (
           <SwiperSlide key={index} className={styles.slide}>
-            <Link href={`/exhibitions`} className={styles.slideLink}>
+            <Link href={item.slideLink} className={styles.slideLink}>
               <Image
                 src={item.slideImg.url}
                 width={640}
