@@ -5,13 +5,15 @@ type HeaderMetaProps = {
   pageDescription?: string;
   pageImage?: string;
   pageUrl?: string;
+  pageType?: string;
 };
 
 const HeaderMeta = ({
   pageTitle = 'Atsushi Yamakawa',
   pageDescription = 'official website of Atsushi Yamakawa',
   pageImage = '/images/og-images/default-image.jpg',
-  pageUrl = 'https://atsushi-yamakawa.com',
+  pageUrl = '',
+  pageType = 'website',
 }: HeaderMetaProps) => {
   return (
     <Head>
@@ -22,8 +24,11 @@ const HeaderMeta = ({
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={pageImage} />
-      <meta property="og:url" content={pageUrl} />
-      <meta property="og:type" content="website" />
+      <meta
+        property="og:url"
+        content={'https://atsushi-yamakawa.com' + pageUrl}
+      />
+      <meta property="og:type" content={pageType} />
     </Head>
   );
 };

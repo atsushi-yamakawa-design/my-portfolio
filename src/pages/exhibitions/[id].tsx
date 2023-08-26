@@ -10,7 +10,7 @@ import HeaderMeta from '@components/HeaderMeta';
 export default function ExPage({ ex }: { ex: Exhibitions }) {
   return (
     <>
-      <HeaderMeta pageTitle={ex.title} />
+      <HeaderMeta pageTitle={ex.title} pageUrl={'/exhibitions/' + ex.id} />
       <main>
         <div className={style.wrapper}>
           <div className={style.textWrapper}>

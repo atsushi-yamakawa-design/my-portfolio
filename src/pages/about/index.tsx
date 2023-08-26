@@ -8,7 +8,7 @@ import HeaderMeta from '@components/HeaderMeta';
 export default function About({ settings }: { settings: Settings }) {
   return (
     <>
-      <HeaderMeta pageImage={settings.profilePhoto.url} />
+      <HeaderMeta pageUrl="/about" pageImage={settings.profilePhoto.url} />
       <main className={style.main}>
         <div className={'loadScreen'}></div>
         <div className={style.contentsWrapper}>

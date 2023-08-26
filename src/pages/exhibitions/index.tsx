@@ -7,10 +7,10 @@ import BottomMenu from '@components/BottomMenu';
 import PageHeading from '@components/PageHeading';
 import HeaderMeta from '@components/HeaderMeta';
 
-export default function Home({ exhibitions }: { exhibitions: Exhibitions[] }) {
+export default function Ex({ exhibitions }: { exhibitions: Exhibitions[] }) {
   return (
     <>
-      <HeaderMeta />
+      <HeaderMeta pageUrl="/exhibitions" pageType="exhibitions" />
       <main className={style.main}>
         <div className={'loadScreen'}></div>
         <PageHeading heading="Exhibitions" />

@@ -11,7 +11,12 @@ import HeaderMeta from '@components/HeaderMeta';
 export default function WorkPage({ work }: { work: Works }) {
   return (
     <>
-      <HeaderMeta pageTitle={work.title} pageImage={work.header.url} />
+      <HeaderMeta
+        pageTitle={work.title}
+        pageImage={work.header.url}
+        pageUrl={'/works/' + work.id}
+        pageType="product"
+      />
       <main>
         <div className={style.wrapper}>
           <div className={style.headerImg}>
