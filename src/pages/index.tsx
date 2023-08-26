@@ -4,6 +4,7 @@ import { client } from '@libs/client';
 import type { Works, Settings } from '../types';
 import TopScroll from '@components/TopScroll';
 import BottomMenu from '@components/BottomMenu';
+import HeaderMeta from '@components/HeaderMeta';
 
 export default function Home({
   works,
@@ -14,6 +15,7 @@ export default function Home({
 }) {
   return (
     <>
+      <HeaderMeta />
       <main className={style.main}>
         <div className={'loadScreen'}></div>
         <WorkList list={works}></WorkList>

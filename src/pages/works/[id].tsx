@@ -6,10 +6,12 @@ import { GetStaticPropsContext } from 'next';
 import style from './workpage.module.scss';
 import BottomMenu from '@components/BottomMenu';
 import YouTubePlayer from '@components/YouTubePlayer';
+import HeaderMeta from '@components/HeaderMeta';
 
 export default function WorkPage({ work }: { work: Works }) {
   return (
     <>
+      <HeaderMeta pageTitle={work.title} pageImage={work.header.url} />
       <main>
         <div className={style.wrapper}>
           <div className={style.headerImg}>

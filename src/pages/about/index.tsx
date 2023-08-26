@@ -3,10 +3,12 @@ import style from './about.module.scss';
 import { client } from '@libs/client';
 import type { Settings } from '../../types';
 import BottomMenu from '@components/BottomMenu';
+import HeaderMeta from '@components/HeaderMeta';
 
 export default function About({ settings }: { settings: Settings }) {
   return (
     <>
+      <HeaderMeta pageImage={settings.profilePhoto.url} />
       <main className={style.main}>
         <div className={'loadScreen'}></div>
         <div className={style.contentsWrapper}>

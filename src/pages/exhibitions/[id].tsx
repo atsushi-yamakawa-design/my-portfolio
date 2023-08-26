@@ -5,10 +5,12 @@ import type { Exhibitions } from '../../types';
 import { GetStaticPropsContext } from 'next';
 import style from './exPage.module.scss';
 import BottomMenu from '@components/BottomMenu';
+import HeaderMeta from '@components/HeaderMeta';
 
 export default function ExPage({ ex }: { ex: Exhibitions }) {
   return (
     <>
+      <HeaderMeta pageTitle={ex.title} />
       <main>
         <div className={style.wrapper}>
           <div className={style.textWrapper}>

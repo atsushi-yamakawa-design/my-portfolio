@@ -5,10 +5,12 @@ import { client } from '@libs/client';
 import type { Exhibitions } from '../../types';
 import BottomMenu from '@components/BottomMenu';
 import PageHeading from '@components/PageHeading';
+import HeaderMeta from '@components/HeaderMeta';
 
 export default function Home({ exhibitions }: { exhibitions: Exhibitions[] }) {
   return (
     <>
+      <HeaderMeta />
       <main className={style.main}>
         <div className={'loadScreen'}></div>
         <PageHeading heading="Exhibitions" />
