@@ -51,7 +51,7 @@ button {
 $light-theme: (
   'text-color': black,
   'text-pale': #9a98a0,
-  'bg-color': white,
+  'bg-color': $bg,
   'caption': #b8b6c3,
   'hover': #234cdd,
   'twitter-icon': url('/images/sns-icons/twitter.svg'),
@@ -64,7 +64,7 @@ $light-theme: (
 $dark-theme: (
   'text-color': rgb(223, 223, 223),
   'text-pale': #5e5d63,
-  'bg-color': #00030b,
+  'bg-color': $bg-dark,
   'caption': #6e6d75,
   'hover': #234cdd,
   'twitter-icon': url('/images/sns-icons/twitter-dark.svg'),
@@ -125,11 +125,11 @@ $dark-theme: (
   position: fixed;
   width: 100vw;
   height: 100dvh;
-  background-color: #fff;
+  background-color: $bg;
   z-index: 999;
   transform: translateX(100%);
   animation: slideInFromLeft 0.45s ease-in-out;
   @media (prefers-color-scheme: dark) {
-    background-color: #000;
+    background-color: $bg-dark;
   }
 }
