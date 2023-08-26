@@ -1,18 +1,10 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import WorkList from '@components/WorkList';
 import style from './about.module.scss';
 import { client } from '@libs/client';
-import type { Works, Settings } from '../../types';
+import type { Settings } from '../../types';
 import BottomMenu from '@components/BottomMenu';
 
-export default function About({
-  works,
-  settings,
-}: {
-  works: Works[];
-  settings: Settings;
-}) {
+export default function About({ settings }: { settings: Settings }) {
   return (
     <>
       <main className={style.main}>
@@ -84,11 +76,9 @@ export default function About({
 }
 
 export const getStaticProps = async () => {
-  const works = await client.get({ endpoint: 'works' });
   const settings = await client.get({ endpoint: 'settings' });
   return {
     props: {
-      works: works.contents,
       settings: settings,
     },
   };

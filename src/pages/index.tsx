@@ -1,18 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import WorkList from '@components/WorkList';
 import style from './page.module.scss';
 import { client } from '@libs/client';
 import type { Works, Settings } from '../types';
-import TopSlider from '@components/TopSlider';
 import TopScroll from '@components/TopScroll';
 import BottomMenu from '@components/BottomMenu';
-
-// const items = [
-//   { id: 1, content: 'Slide 1' },
-//   { id: 2, content: 'Slide 2' },
-//   { id: 3, content: 'Slide 3' },
-// ];
 
 export default function Home({
   works,
