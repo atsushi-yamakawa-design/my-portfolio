@@ -36,7 +36,7 @@ const TopScroll = ({ settings }: { settings: Settings }) => {
 
   const sliderConfig = {
     loop: true,
-    autoplay: { delay: 3000, disableOnInteraction: true },
+    autoplay: { delay: 3000, disableOnInteraction: false },
     speed: 300,
     spaceBetween: 0,
     direction: swiperDirection,
