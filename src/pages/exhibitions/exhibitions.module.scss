@@ -1,6 +1,12 @@
 @import '@styles/variables.scss';
 @import '@styles/mixins.scss';
 
+.main {
+  @include for-sp {
+    padding-bottom: 6em;
+  }
+}
+
 .exList {
   width: 70%;
   margin: 0 0 100px 100px;

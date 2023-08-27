@@ -12,17 +12,17 @@ export default function BottomMenu({
       <div className={style.wrapper}>
         <ul className={style.menuList}>
           <li className={showTop ? '' : 'hide'}>
-            <Link href={`/`} className={`hover-change`}>
+            <Link href={`/`} className={`hover-change textPale`}>
               works
             </Link>
           </li>
           <li className={showAbout ? '' : 'hide'}>
-            <Link href={`/about`} className={`hover-change`}>
+            <Link href={`/about`} className={`hover-change textPale`}>
               about
             </Link>
           </li>
           <li className={showEx ? '' : 'hide'}>
-            <Link href={`/exhibitions`} className={`hover-change`}>
+            <Link href={`/exhibitions`} className={`hover-change textPale`}>
               exhibitions
             </Link>
           </li>
