@@ -32,7 +32,9 @@ export default function Ex({ exhibitions }: { exhibitions: Exhibitions[] }) {
                 <div>
                   <p className={style.exTitle}>{exhibition.title}</p>
                   <p className={style.exPreiod}>{exhibition.period}</p>
-                  <p className={style.exVenue}>{exhibition.venue}</p>
+                  <p className={`${style.exVenue} textPale`}>
+                    {exhibition.venue}
+                  </p>
                 </div>
               </Link>
             </li>

@@ -6,6 +6,7 @@ import { GetStaticPropsContext } from 'next';
 import style from './exPage.module.scss';
 import BottomMenu from '@components/BottomMenu';
 import HeaderMeta from '@components/HeaderMeta';
+import YouTubePlayer from '@components/YouTubePlayer';
 
 export default function ExPage({ ex }: { ex: Exhibitions }) {
   return (
@@ -32,6 +33,9 @@ export default function ExPage({ ex }: { ex: Exhibitions }) {
             </div>
           </div>
           <div className={style.exImgs}>
+            {ex.movie ? (
+              <YouTubePlayer videoId={ex.movie} thumb={ex.movieThumb.url} />
+            ) : null}
             <ul className={style.exImgsList}>
               {ex.exImgs.map((img) => (
                 <li

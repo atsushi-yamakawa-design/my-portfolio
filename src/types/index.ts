@@ -74,6 +74,9 @@ export type Exhibitions = {
     url: string;
   };
   movie?: string;
+  movieThumb: {
+    url: string;
+  };
   header: {
     url: string;
   };
