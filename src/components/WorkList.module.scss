@@ -8,10 +8,21 @@
   top: 38px;
   @include for-sp {
     right: $sp-side-width;
-    top: 40vh;
+    top: 34vh;
   }
   .name {
     padding: 5px 0;
     @include menu-texts;
+  }
+  &::after {
+    content: '';
+    display: block;
+    margin: 1em 0 0 auto;
+    width: 20px;
+    height: 1px;
+    background-color: #000;
+    @media (prefers-color-scheme: dark) {
+      background-color: #fff;
+    }
   }
 }
