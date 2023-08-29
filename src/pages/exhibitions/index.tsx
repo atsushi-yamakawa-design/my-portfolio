@@ -22,7 +22,7 @@ export default function Ex({ exhibitions }: { exhibitions: Exhibitions[] }) {
                 className={`${style.exItem} hover-change`}
               >
                 <Image
-                  src={exhibition.thumb.url}
+                  src={exhibition.thumb.url + '?fit=clip&w=1000&h=1000'}
                   layout="responsive"
                   width={640}
                   height={400}

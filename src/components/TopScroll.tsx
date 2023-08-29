@@ -54,7 +54,7 @@ const TopScroll = ({ settings }: { settings: Settings }) => {
           <SwiperSlide key={index} className={styles.slide}>
             <Link href={item.slideLink} className={styles.slideLink}>
               <Image
-                src={item.slideImg.url}
+                src={item.slideImg.url + '?fit=clip&w=1000&h=1000'}
                 width={640}
                 height={400}
                 alt={item.title}

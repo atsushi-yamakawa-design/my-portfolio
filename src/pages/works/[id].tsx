@@ -21,7 +21,7 @@ export default function WorkPage({ work }: { work: Works }) {
         <div className={style.wrapper}>
           <div className={style.headerImg}>
             <Image
-              src={work.header.url}
+              src={work.header.url + '?fit=clip&w=1000&h=1000'}
               layout="responsive"
               width={640}
               height={400}
@@ -65,7 +65,7 @@ export default function WorkPage({ work }: { work: Works }) {
                   className={style[img.width == 'Full' ? 'fullImg' : 'halfImg']}
                 >
                   <Image
-                    src={img.img.url}
+                    src={img.img.url + '?fit=clip&w=1000&h=1000'}
                     layout="responsive"
                     width={640}
                     height={400}

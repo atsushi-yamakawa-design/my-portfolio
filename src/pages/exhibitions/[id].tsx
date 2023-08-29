@@ -34,7 +34,10 @@ export default function ExPage({ ex }: { ex: Exhibitions }) {
           </div>
           <div className={style.exImgs}>
             {ex.movie ? (
-              <YouTubePlayer videoId={ex.movie} thumb={ex.movieThumb.url} />
+              <YouTubePlayer
+                videoId={ex.movie}
+                thumb={ex.movieThumb.url + '?fit=clip&w=1000&h=1000'}
+              />
             ) : null}
             <ul className={style.exImgsList}>
               {ex.exImgs.map((img) => (
@@ -43,7 +46,7 @@ export default function ExPage({ ex }: { ex: Exhibitions }) {
                   className={style[img.width == 'Full' ? 'fullImg' : 'halfImg']}
                 >
                   <Image
-                    src={img.img.url}
+                    src={img.img.url + '?fit=clip&w=1000&h=1000'}
                     layout="responsive"
                     width={640}
                     height={400}
