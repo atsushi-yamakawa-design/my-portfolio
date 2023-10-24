@@ -24,8 +24,8 @@
 .textWrapper {
   position: absolute;
   top: 10vh;
-  right: $pc-side-width;
-  width: calc(100vw - $vw-golden) - 10vw;
+  right: $pc-side-width + 60px;
+  width: calc(100vw - $vw-golden) - 12vw;
   padding-bottom: 200px;
   @include for-tablet {
     position: relative;
