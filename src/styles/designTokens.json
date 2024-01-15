@@ -95,6 +95,26 @@
     "extra-large": {
       "value": "{d-4}",
       "type": "borderWidth"
+    },
+    "spacing-1": {
+      "value": "{d-4}",
+      "type": "spacing"
+    },
+    "spacing-2": {
+      "value": "{d-8}",
+      "type": "spacing"
+    },
+    "spacing-3": {
+      "value": "{d-16}",
+      "type": "spacing"
+    },
+    "spacing-4": {
+      "value": "{d-32}",
+      "type": "spacing"
+    },
+    "spacing-5": {
+      "value": "{d-64}",
+      "type": "spacing"
     }
   },
   "$themes": [],
