@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
+    "prebuild": "node convertTokens.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.js\" \"**/*.jsx\" \"**/*.ts\" \"**/*.tsx\"",
-    "api:build": "aspida"
+    "api:build": "aspida",
+    "watch-tokens": "nodemon --watch src/styles/designTokens.json --exec node convertTokens.js"
   },
   "dependencies": {
     "@next/font": "^13.4.8",
