@@ -115,6 +115,26 @@
     "spacing-5": {
       "value": "{d-64}",
       "type": "spacing"
+    },
+    "light": {
+      "text-color": {
+        "value": "#000000",
+        "type": "color"
+      },
+      "text-pale": {
+        "value": "#9a98a0",
+        "type": "color"
+      },
+      "caption": {
+        "value": "#b8b6c3",
+        "type": "color"
+      }
+    },
+    "dark": {
+      "caption": {
+        "value": "#6e6d75",
+        "type": "color"
+      }
     }
   },
   "$themes": [],
