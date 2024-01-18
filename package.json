@@ -24,6 +24,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-svg": "^16.1.19",
+    "style-dictionary": "^3.9.2",
     "swiper": "^9.4.1",
     "typescript": "5.1.3"
   },
