@@ -135,6 +135,10 @@
         "value": "#6e6d75",
         "type": "color"
       }
+    },
+    "accent": {
+      "value": "#DD23BF",
+      "type": "color"
     }
   },
   "$themes": [],
