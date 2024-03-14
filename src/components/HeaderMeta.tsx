@@ -10,7 +10,7 @@ type HeaderMetaProps = {
 
 const HeaderMeta = ({
   pageTitle = 'Atsushi Yamakawa 山川敦史',
-  pageDescription = 'official website of Atsushi Yamakawa 山川敦史のサイト',
+  pageDescription = 'Portfolio website of Atsushi Yamakawa',
   pageImage = '/images/og-images/default-image.jpg',
   pageUrl = '',
   pageType = 'website',
