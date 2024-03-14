@@ -14,7 +14,7 @@ export default function WorkPage({ work }: { work: Works }) {
       <HeaderMeta
         pageTitle={work.title}
         pageImage={work.header.url}
-        pageUrl={'/works/' + work.id}
+        pageUrl={'/work/' + work.id}
         pageType="product"
       />
       <main>
