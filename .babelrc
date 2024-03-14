@@ -4,7 +4,7 @@
     [
       "styled-jsx/babel",
       {
-        "plugins": ["styled-jsx-plugin-sass"]
+        "plugins": ["@styled-jsx/plugin-sass"]
       }
     ]
   ]

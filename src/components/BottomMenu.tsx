@@ -13,7 +13,7 @@ export default function BottomMenu({
         <ul className={style.menuList}>
           <li className={showTop ? '' : 'hide'}>
             <Link href={`/`} className={`hover-change textPale`}>
-              works
+              work
             </Link>
           </li>
           <li className={showAbout ? '' : 'hide'}>

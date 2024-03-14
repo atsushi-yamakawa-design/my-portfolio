@@ -1,5 +1,6 @@
 @import '@styles/mixins';
 @import '@styles/variables';
+@import '@styles/tokenVariables';
 
 * {
   box-sizing: border-box;
@@ -53,7 +54,7 @@ $light-theme: (
   'text-pale': #9a98a0,
   'bg-color': $bg,
   'caption': #b8b6c3,
-  'hover': #234cdd,
+  'hover': $accent,
   'twitter-icon': url('/images/sns-icons/twitter.svg'),
   'instagram-icon': url('/images/sns-icons/instagram.svg'),
   'facebook-icon': url('/images/sns-icons/facebook.svg'),
@@ -66,7 +67,7 @@ $dark-theme: (
   'text-pale': #5e5d63,
   'bg-color': $bg-dark,
   'caption': #6e6d75,
-  'hover': #234cdd,
+  'hover': $accent,
   'twitter-icon': url('/images/sns-icons/twitter-dark.svg'),
   'instagram-icon': url('/images/sns-icons/instagram-dark.svg'),
   'facebook-icon': url('/images/sns-icons/facebook-dark.svg'),
