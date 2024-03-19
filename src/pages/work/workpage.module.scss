@@ -1,5 +1,6 @@
 @import '@styles/variables.scss';
 @import '@styles/mixins.scss';
+@import '@styles/_tokenVariables.scss';
 
 .wrapper {
   @include for-tablet {
@@ -47,6 +48,9 @@
       @include dscr-text;
       p {
         margin: 20px 0;
+      }
+      a {
+        color: $accent;
       }
       @include for-tablet {
         width: 84%;
