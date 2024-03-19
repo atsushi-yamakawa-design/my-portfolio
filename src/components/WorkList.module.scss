@@ -14,15 +14,15 @@
     padding: 5px 0;
     @include menu-texts;
   }
-  &::after {
-    content: '';
-    display: block;
-    margin: 1em 0 0 auto;
-    width: 20px;
-    height: 1px;
-    background-color: #000;
-    @media (prefers-color-scheme: dark) {
-      background-color: #fff;
-    }
-  }
+  // &::after {
+  //   content: '';
+  //   display: block;
+  //   margin: 1em 0 0 auto;
+  //   width: 20px;
+  //   height: 1px;
+  //   background-color: #000;
+  //   @media (prefers-color-scheme: dark) {
+  //     background-color: #fff;
+  //   }
+  // }
 }
