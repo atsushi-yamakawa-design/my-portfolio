@@ -66,7 +66,7 @@ export default function BottomMenu({
           </li> */}
           <li>
             <a
-              href={`https://twitter.com/Seeyou_myfriend`}
+              href={`https://note.com/atsushi_yamakawa/`}
               target="_blank"
               rel="noopener noreferrer"
             >
