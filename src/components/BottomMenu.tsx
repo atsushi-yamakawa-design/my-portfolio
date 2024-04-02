@@ -55,7 +55,7 @@ export default function BottomMenu({
               <div className={'facebook'} />
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               href={`https://www.threads.net/@atsushi_design`}
               target="_blank"
@@ -63,8 +63,8 @@ export default function BottomMenu({
             >
               <div className={'threads'} />
             </a>
-          </li>
-          {/* <li>
+          </li> */}
+          <li>
             <a
               href={`https://twitter.com/Seeyou_myfriend`}
               target="_blank"
@@ -72,7 +72,7 @@ export default function BottomMenu({
             >
               <div className={'note'} />
             </a>
-          </li> */}
+          </li>
         </ul>
       </div>
     </>
