@@ -1,0 +1,46 @@
+@import '@styles/variables.scss';
+@import '@styles/mixins';
+
+.contentsWrapper {
+  margin-left: 100px;
+  padding: 40px 0 200px;
+  width: 551px;
+  @include for-tablet {
+    margin-left: 0;
+    padding: 0 0 200px $sp-side-width;
+    width: 84%;
+  }
+}
+
+.form {
+  ul {
+    li {
+      margin: 0 0 20px;
+      input {
+        height: 24px;
+      }
+      textarea {
+        height: 100px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        margin: 10px 0;
+        padding: 0.5em;
+      }
+      input:focus,
+      textarea:focus {
+        border: none;
+        border-bottom: solid 1px rgb(33, 14, 153);
+      }
+    }
+  }
+  .submitButtonWrapper {
+    margin: 20px 0 0;
+    button {
+      font-size: 18px;
+      font-family: $font-roman;
+      border-bottom: solid 1px;
+    }
+  }
+}

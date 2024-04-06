@@ -6,6 +6,7 @@ export default function BottomMenu({
   showAbout = true,
   showEx = true,
   showSNS = true,
+  showContact = true,
 }) {
   return (
     <>
@@ -24,6 +25,11 @@ export default function BottomMenu({
           <li className={showEx ? '' : 'hide'}>
             <Link href={`/exhibitions`} className={`hover-change textPale`}>
               exhibitions
+            </Link>
+          </li>
+          <li className={showContact ? '' : 'hide'}>
+            <Link href={`/contact`} className={`hover-change textPale`}>
+              contact
             </Link>
           </li>
         </ul>
