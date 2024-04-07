@@ -19,7 +19,7 @@ export default function Home({
       <main className={style.main}>
         <div className={'loadScreen'}></div>
         <WorkList list={works}></WorkList>
-        <BottomMenu showTop={false} />
+        <BottomMenu showTop={false} showSNS={false} />
         <TopScroll settings={settings} />
       </main>
     </>

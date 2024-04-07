@@ -116,6 +116,7 @@ $dark-theme: (
     border: none;
     background-color: map-get($theme, 'form-bg');
     border-bottom: solid 1px map-get($theme, 'text-color');
+    border-radius: 0px;
   }
 }
 
