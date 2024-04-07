@@ -41,6 +41,9 @@
       font-size: 18px;
       font-family: $font-roman;
       border-bottom: solid 1px;
+      @include for-tablet {
+        font-size: 16px;
+      }
     }
   }
 }
