@@ -24,7 +24,17 @@ export default function Contact() {
             action="https://api.postn.me/workspaces/atsushi-yamakawa-form/forms/my-form/answers"
             method="post"
             className={style.form}
-            onSubmit={(e) => handleSubmit(e)}
+            onSubmit={(e) => {
+              const checkbox = document.getElementById(
+                'not-a-bot'
+              ) as HTMLInputElement | null;
+              if (!checkbox || !checkbox.checked) {
+                e.preventDefault();
+                alert('Please confirm you are not a bot.');
+              } else {
+                handleSubmit(e);
+              }
+            }}
           >
             <ul>
               <li>
@@ -40,6 +50,18 @@ export default function Contact() {
                 <textarea id="Content" name="Content" required />
               </li>
             </ul>
+            {/* bot対策のチェックボックス */}
+            <div>
+              <label className={style.notABot}>
+                <input
+                  type="checkbox"
+                  id="not-a-bot"
+                  name="not-a-bot"
+                  required
+                />
+                私はロボットではありません (I'm not a bot)
+              </label>
+            </div>
             <div className={style.submitButtonWrapper}>
               <button type="submit">submit</button>
             </div>
