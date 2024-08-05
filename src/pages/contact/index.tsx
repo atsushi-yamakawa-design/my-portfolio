@@ -59,7 +59,7 @@ export default function Contact() {
                   name="not-a-bot"
                   required
                 />
-                私はロボットではありません (I'm not a bot)
+                私はロボットではありません (I&apos;m not a bot)
               </label>
             </div>
             <div className={style.submitButtonWrapper}>
