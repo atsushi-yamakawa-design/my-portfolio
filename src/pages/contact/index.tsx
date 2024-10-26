@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import HeaderMeta from '@components/HeaderMeta';
 import BottomMenu from '@components/BottomMenu';
 import PageHeading from '@components/PageHeading';
 import style from './contact.module.scss';
 
 export default function Contact() {
+  // フォームが表示された時間を記録
+  const [startTime, setStartTime] = useState<number>(Date.now());
+
+  useEffect(() => {
+    // コンポーネントがマウントされたときに開始時間を設定
+    setStartTime(Date.now());
+  }, []);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // デフォルトのフォーム送信を阻止
+
+    const formTime = Date.now() - startTime;
+
+    if (formTime < 3000) {
+      // 3秒未満で送信された場合はスパムと判断
+      alert('フォームの送信に時間がかかりすぎています。再度お試しください。');
+      return;
+    }
+
     const isConfirmed = window.confirm('この内容で送信しますか？');
     if (isConfirmed) {
       e.currentTarget.submit();
@@ -59,7 +76,7 @@ export default function Contact() {
                   name="not-a-bot"
                   required
                 />
-                私はロボットではありません (I&apos;m not a bot)
+                私はロボットではありません (I'm not a bot)
               </label>
             </div>
             <div className={style.submitButtonWrapper}>
