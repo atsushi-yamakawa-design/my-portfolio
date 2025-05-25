@@ -1,0 +1,39 @@
+@import '@styles/variables.scss';
+@import '@styles/mixins';
+
+.entryPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 100dvh;
+}
+
+.snsIcons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 200px;
+
+  a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    div {
+      width: 24px;
+      height: 24px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.worksLink {
+  margin-top: 20px;
+  .worksButton {
+    font-family: $font-roman;
+    border-bottom: solid 1px;
+  }
+}
