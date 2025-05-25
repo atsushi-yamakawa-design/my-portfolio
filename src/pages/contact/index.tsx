@@ -13,20 +13,42 @@ export default function Contact() {
     setStartTime(Date.now());
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // デフォルトのフォーム送信を阻止
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
     const formTime = Date.now() - startTime;
 
     if (formTime < 3000) {
-      // 3秒未満で送信された場合はスパムと判断
       alert('フォームの送信に時間がかかりすぎています。再度お試しください。');
       return;
     }
 
     const isConfirmed = window.confirm('この内容で送信しますか？');
     if (isConfirmed) {
-      e.currentTarget.submit();
+      try {
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
+
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+          const result = await response.json();
+          console.error('サーバーエラー:', result.error);
+          throw new Error(result.error || '送信に失敗しました。');
+        }
+
+        alert('送信が完了しました。');
+        window.location.href = '/'; // トップページにリダイレクト
+      } catch (error) {
+        console.error('エラー詳細:', error);
+        alert('エラーが発生しました。再度お試しください。');
+      }
     }
   };
 
@@ -37,48 +59,21 @@ export default function Contact() {
         <div className={'loadScreen'}></div>
         <PageHeading heading="Contact" />
         <div className={style.contentsWrapper}>
-          <form
-            action="https://api.postn.me/workspaces/atsushi-yamakawa-form/forms/my-form/answers"
-            method="post"
-            className={style.form}
-            onSubmit={(e) => {
-              const checkbox = document.getElementById(
-                'not-a-bot'
-              ) as HTMLInputElement | null;
-              if (!checkbox || !checkbox.checked) {
-                e.preventDefault();
-                alert('Please confirm you are not a bot.');
-              } else {
-                handleSubmit(e);
-              }
-            }}
-          >
+          <form onSubmit={handleSubmit} className={style.form}>
             <ul>
               <li>
                 <label htmlFor="name">名前 Name</label>
                 <input type="text" id="name" name="name" required />
               </li>
               <li>
-                <label htmlFor="contact">連絡先 Contact information</label>
-                <input type="text" id="contact" name="contact" required />
+                <label htmlFor="email">連絡先 Contact information</label>
+                <input type="email" id="email" name="email" required />
               </li>
               <li>
-                <label htmlFor="Content">内容 Content</label>
-                <textarea id="Content" name="Content" required />
+                <label htmlFor="message">内容 Content</label>
+                <textarea id="message" name="message" required></textarea>
               </li>
             </ul>
-            {/* bot対策のチェックボックス */}
-            <div>
-              <label className={style.notABot}>
-                <input
-                  type="checkbox"
-                  id="not-a-bot"
-                  name="not-a-bot"
-                  required
-                />
-                私はロボットではありません (I&apos;m not a bot)
-              </label>
-            </div>
             <div className={style.submitButtonWrapper}>
               <button type="submit">submit</button>
             </div>

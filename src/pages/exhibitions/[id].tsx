@@ -11,7 +11,11 @@ import YouTubePlayer from '@components/YouTubePlayer';
 export default function ExPage({ ex }: { ex: Exhibitions }) {
   return (
     <>
-      <HeaderMeta pageTitle={ex.title} pageUrl={'/exhibitions/' + ex.id} />
+      <HeaderMeta
+        pageTitle={ex.title}
+        pageUrl={'/exhibitions/' + ex.id}
+        pageImage={ex.thumb.url}
+      />
       <main>
         <div className={style.wrapper}>
           <div className={style.textWrapper}>
